@@ -1,818 +1,325 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
   <meta charset="utf-8">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   
   <title>文所未聞</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A personal blog about tech, life, and random thoughts.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="文所未聞">
-<meta property="og:url" content="https://s1521121119.github.io/index.html">
-<meta property="og:site_name" content="文所未聞">
-<meta property="og:description" content="A personal blog about tech, life, and random thoughts.">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Jeff Lin">
-<meta property="article:tag" content="tech, life, blog, random thoughts">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="文所未聞" type="application/atom+xml">
-  
   
     <link rel="shortcut icon" href="/favicon.png">
   
   
+    <link rel='manifest' href='/manifest.json'>
   
-<link rel="stylesheet" href="/css/style.css">
 
   
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  
+  <meta property="og:title" content="文所未聞" />
+  
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:url" content="https://s1521121119.github.io/index.html" />
+  
+  <meta property="og:image" content="/favicon.png" />
+  
+  
 
   
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/index.css">
+
+  
+  
+  
+  
+  
+  
+
   
 <meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">文所未聞</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Jeff never heard of it</a>
-        </h2>
-      
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/MrWillCom" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-codepen nav-item-icon" href="https://codepen.io/mrwillcom" target="_blank" aria-label="CodePen">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-patreon nav-item-icon" href="https://www.patreon.com/MrWillCom" target="_blank" aria-label="Patreon">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-mastodon nav-item-icon" href="https://noc.social/@MrWillCom" target="_blank" aria-label="Mastodon">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-discord nav-item-icon" href="https://discord.gg/UKuFDjcfY8" target="_blank" aria-label="Discord">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://s1521121119.github.io"></form>
-      </div>
+</nav>
+        <div class="container">
+    
+    <div class="hero">
+        <div class="group">
+            <h2 class="sub">Jeff never heard of it</h2>
+            <h2 class="large">A personal blog about tech, life, and random thoughts.</h2>
+        </div>
     </div>
-  </div>
-</header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-編碼規則" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/23/%E7%B7%A8%E7%A2%BC%E8%A6%8F%E5%89%87/" class="article-date">
-  <time class="dt-published" datetime="2024-11-23T13:46:03.000Z" itemprop="datePublished">2024-11-23</time>
-</a>
+    <h2 class="section-title">Latest Posts</h2>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+
+    <div class="post-list">
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/23/%E7%B7%A8%E7%A2%BC%E8%A6%8F%E5%89%87/">編碼規則</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>MBTI可以幫助一個人瞭解自己所代表的個性，<br>但人畢竟是需要互動的，<br>為了理解彼此之間的互動模型，<br>必須將所有可能性列出，<br>但是原始的MBTI並不在Care編號，<br>這使得後續管理和分析MBTI的工作變得更加困難。</p>
-<p>所以編碼規則也是很重要的。<br>在此依據ASCII的字序進行編碼</p>
-<h2 id="代號說明"><a href="#代號說明" class="headerlink" title="代號說明"></a>代號說明</h2><table>
-<thead>
-<tr>
-<th>描述</th>
-<th>代號</th>
-<th>說明</th>
-<th>代號</th>
-<th>說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>關注力來源</td>
-<td>I</td>
-<td>內向</td>
-<td>E</td>
-<td>外向</td>
-</tr>
-<tr>
-<td>獲取訊息的方式</td>
-<td>N</td>
-<td>直覺</td>
-<td>S</td>
-<td>實感</td>
-</tr>
-<tr>
-<td>決定的方式</td>
-<td>T</td>
-<td>思考</td>
-<td>F</td>
-<td>情感</td>
-</tr>
-<tr>
-<td>傾向的生活方式</td>
-<td>J</td>
-<td>判斷</td>
-<td>P</td>
-<td>感知</td>
-</tr>
-</tbody></table>
-<h2 id="編碼規則"><a href="#編碼規則" class="headerlink" title="編碼規則"></a>編碼規則</h2><table>
-<thead>
-<tr>
-<th>代號</th>
-<th>編號</th>
-<th>代號</th>
-<th>編號</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>E</td>
-<td>0</td>
-<td>I</td>
-<td>1</td>
-</tr>
-<tr>
-<td>N</td>
-<td>0</td>
-<td>S</td>
-<td>1</td>
-</tr>
-<tr>
-<td>F</td>
-<td>0</td>
-<td>T</td>
-<td>1</td>
-</tr>
-<tr>
-<td>J</td>
-<td>0</td>
-<td>P</td>
-<td>1</td>
-</tr>
-</tbody></table>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><table>
-<thead>
-<tr>
-<th>MBTI</th>
-<th>N</th>
-<th>代表人物</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>ENFJ</td>
-<td>0</td>
-<td>主人公</td>
-</tr>
-<tr>
-<td>ENFP</td>
-<td>1</td>
-<td>競選者</td>
-</tr>
-<tr>
-<td>ENTJ</td>
-<td>2</td>
-<td>指揮官</td>
-</tr>
-<tr>
-<td>ENTP</td>
-<td>3</td>
-<td>辯論家</td>
-</tr>
-<tr>
-<td>ESFJ</td>
-<td>4</td>
-<td>執政官</td>
-</tr>
-<tr>
-<td>ESFP</td>
-<td>5</td>
-<td>表演者</td>
-</tr>
-<tr>
-<td>ESTJ</td>
-<td>6</td>
-<td>總經理</td>
-</tr>
-<tr>
-<td>ESTP</td>
-<td>7</td>
-<td>企業家</td>
-</tr>
-<tr>
-<td>INFJ</td>
-<td>8</td>
-<td>提倡者</td>
-</tr>
-<tr>
-<td>INFP</td>
-<td>9</td>
-<td>調停者</td>
-</tr>
-<tr>
-<td>INTJ</td>
-<td>A</td>
-<td>建築師</td>
-</tr>
-<tr>
-<td>INTP</td>
-<td>B</td>
-<td>邏輯學家</td>
-</tr>
-<tr>
-<td>ISFJ</td>
-<td>C</td>
-<td>守衛者</td>
-</tr>
-<tr>
-<td>ISFP</td>
-<td>D</td>
-<td>探險家</td>
-</tr>
-<tr>
-<td>ISTJ</td>
-<td>E</td>
-<td>物流師</td>
-</tr>
-<tr>
-<td>ISTP</td>
-<td>F</td>
-<td>鑑賞家</td>
-</tr>
-</tbody></table>
-<h2 id="編碼表"><a href="#編碼表" class="headerlink" title="編碼表"></a>編碼表</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>自己</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-<th>-</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>對方</td>
-<td>&#x2F;</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>8</td>
-<td>9</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-</tr>
-<tr>
-<td>-</td>
-<td>0</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>1</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>2</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>3</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>4</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>5</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>6</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>7</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>8</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>9</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>A</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>B</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>C</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>D</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>E</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-<tr>
-<td>-</td>
-<td>F</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-<td>_</td>
-</tr>
-</tbody></table>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>編碼規則是一個重要的工具，<br>可以幫助人們更容易理解彼此之間的互動模型，<br>現在既然有了AI，完成這樣的表格或許也不再是問題。</p>
-
-      
+        <article class="post-list-item">
+            <a href="/2024/11/23/%E7%B7%A8%E7%A2%BC%E8%A6%8F%E5%89%87/">
+                
+                <div class="content">
+                    
+                    <div class="title">
+                        編碼規則
+                    </div>
+                    
+                    
+                    <div class="time">
+                        <span>November</span>
+                        <span>&nbsp;23,&nbsp;</span>
+                        <span>2024</span>
+                    </div>
+                    
+                </div>
+            </a>
+        </article>
+        
+        <article class="post-list-item">
+            <a href="/2024/11/23/Goat-%E8%B6%85%E4%BA%BA%E9%A1%9E%E8%A8%88%E7%94%BB/">
+                
+                <div class="content">
+                    
+                    <div class="title">
+                        [Goat] 超人類計画
+                    </div>
+                    
+                    
+                    <div class="time">
+                        <span>November</span>
+                        <span>&nbsp;23,&nbsp;</span>
+                        <span>2024</span>
+                    </div>
+                    
+                </div>
+            </a>
+        </article>
+        
+        <article class="post-list-item">
+            <a href="/2024/11/22/My-First-Post/">
+                
+                <div class="content">
+                    
+                    <div class="title">
+                        My First Post
+                    </div>
+                    
+                    
+                    <div class="time">
+                        <span>November</span>
+                        <span>&nbsp;22,&nbsp;</span>
+                        <span>2024</span>
+                    </div>
+                    
+                </div>
+            </a>
+        </article>
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://s1521121119.github.io/2024/11/23/%E7%B7%A8%E7%A2%BC%E8%A6%8F%E5%89%87/" data-id="cm3u9767o0004coujf4ye65q6" data-title="編碼規則" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mbti/" rel="tag">mbti</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="music-Goat-超人類計画" class="h-entry article article-type-music" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/23/Goat-%E8%B6%85%E4%BA%BA%E9%A1%9E%E8%A8%88%E7%94%BB/" class="article-date">
-  <time class="dt-published" datetime="2024-11-23T03:06:12.000Z" itemprop="datePublished">2024-11-23</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/friends" class="item">Friends</a>
+                
+                <a href="/projects" class="item">Projects</a>
+                
+                <a href="/resume" class="item">Resume</a>
+                
+                <a href="/about" class="item">About</a>
+                
+                <a href="/atom.xml" class="item">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Projects</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/rsa-cli" class="item">RSA CLI</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/hexo-theme-cupertino" class="item">Hexo Theme Cupertino</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/a-calendar" class="item">A Calendar</a>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom/auto-mirroring-bucket" class="item">Auto Mirroring Bucket</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/MrWillCom" class="item">GitHub</a>
+                
+                <a target="_blank" rel="noopener" href="https://codepen.io/mrwillcom" class="item">CodePen</a>
+                
+                <a target="_blank" rel="noopener" href="https://www.patreon.com/MrWillCom" class="item">Patreon</a>
+                
+                <a target="_blank" rel="noopener" href="https://noc.social/@MrWillCom" class="item">Mastodon</a>
+                
+                <a target="_blank" rel="noopener" href="https://discord.gg/UKuFDjcfY8" class="item">Discord</a>
+                
+                <a href="mailto:mr.will.com@outlook.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2024 Jeff Lin<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/23/Goat-%E8%B6%85%E4%BA%BA%E9%A1%9E%E8%A8%88%E7%94%BB/">[Goat] 超人類計画</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在開車的過程中，意外被Apple music 推薦到這個團體的音樂，<br>強烈的音樂節奏感，讓人不自覺的跟隨著音樂，<br>不斷的聽到不同的旋律，很有感染力。</p>
-<p>頻道:<br><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCS4RTexOOnbmKd-vjGFOTUQ">https://www.youtube.com/channel/UCS4RTexOOnbmKd-vjGFOTUQ</a></p>
-<p>歌曲:<br>Pinball feat. 裏命(RIME) - Goat<br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Jxj4m6VoThk">https://www.youtube.com/watch?v=Jxj4m6VoThk</a></p>
-<p>回家查資料才發現裏命是CeVIO聲源，<br>雖然我第一次聽過，但比起過去所熟知到VOCALOID，<br>真實度真的差太多了。</p>
-<p>youtube的訂閱數還算滿少的，應該算是挖到寶藏??</p>
-
-      
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
     </div>
-    <footer class="article-footer">
-      <a data-url="https://s1521121119.github.io/2024/11/23/Goat-%E8%B6%85%E4%BA%BA%E9%A1%9E%E8%A8%88%E7%94%BB/" data-id="cm3u9767h0000couj5pvq5xng" data-title="[Goat] 超人類計画" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/music/" rel="tag">music</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-My-First-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/22/My-First-Post/" class="article-date">
-  <time class="dt-published" datetime="2024-11-22T14:05:50.000Z" itemprop="datePublished">2024-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/22/My-First-Post/">My First Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Hello-Hexo"><a href="#Hello-Hexo" class="headerlink" title="Hello Hexo!"></a>Hello Hexo!</h2><p>This is my first post using Hexo.<br>enjoy!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://s1521121119.github.io/2024/11/22/My-First-Post/" data-id="cm3u9767j0001coujaca11chd" data-title="My First Post" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/mbti/" rel="tag">mbti</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/mbti/" style="font-size: 10px;">mbti</a> <a href="/tags/music/" style="font-size: 10px;">music</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/11/23/%E7%B7%A8%E7%A2%BC%E8%A6%8F%E5%89%87/">編碼規則</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/23/Goat-%E8%B6%85%E4%BA%BA%E9%A1%9E%E8%A8%88%E7%94%BB/">[Goat] 超人類計画</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/22/My-First-Post/">My First Post</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 Jeff Lin<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
 
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
+        
+<script src="/js/main.js"></script>
 
-<script src="/js/jquery-3.6.4.min.js"></script>
+        
+        
+        
 
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
 </html>
