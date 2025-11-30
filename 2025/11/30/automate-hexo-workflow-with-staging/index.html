@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"s1521121119.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="title: “自動化 Hexo 工作流：用暫存區搞定文章發布”date: 2025-11-30 22:10:15tags:  - Hexo  - Automation  - Batch  - Script  - 工具身為一個部落客，我們最享受的應該是專注於寫作本身。但每次寫完一篇文章後，總有那麼一些瑣碎的步驟：手動修改檔案的 Front-matter 來加上 title 和 date，然後打開">
+<meta property="og:type" content="article">
+<meta property="og:title" content="automate-hexo-workflow-with-staging">
+<meta property="og:url" content="https://s1521121119.github.io/2025/11/30/automate-hexo-workflow-with-staging/index.html">
+<meta property="og:site_name" content="文所未聞">
+<meta property="og:description" content="title: “自動化 Hexo 工作流：用暫存區搞定文章發布”date: 2025-11-30 22:10:15tags:  - Hexo  - Automation  - Batch  - Script  - 工具身為一個部落客，我們最享受的應該是專注於寫作本身。但每次寫完一篇文章後，總有那麼一些瑣碎的步驟：手動修改檔案的 Front-matter 來加上 title 和 date，然後打開">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-11-30T09:34:01.550Z">
+<meta property="article:modified_time" content="2025-11-30T09:34:01.559Z">
+<meta property="article:author" content="Jeff Lin">
+<meta property="article:tag" content="tech, life, blog, random thoughts">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://s1521121119.github.io/2025/11/30/automate-hexo-workflow-with-staging/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://s1521121119.github.io/2025/11/30/automate-hexo-workflow-with-staging/","path":"2025/11/30/automate-hexo-workflow-with-staging/","title":"automate-hexo-workflow-with-staging"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>automate-hexo-workflow-with-staging | 文所未聞</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">文所未聞</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Jeff never heard of it</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-%E2%80%9C%E8%87%AA%E5%8B%95%E5%8C%96-Hexo-%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9A%E7%94%A8%E6%9A%AB%E5%AD%98%E5%8D%80%E6%90%9E%E5%AE%9A%E6%96%87%E7%AB%A0%E7%99%BC%E5%B8%83%E2%80%9Ddate-2025-11-30-22-10-15tags-Hexo-Automation-Batch-Script-%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">title: “自動化 Hexo 工作流：用暫存區搞定文章發布”date: 2025-11-30 22:10:15tags:  - Hexo  - Automation  - Batch  - Script  - 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E8%AA%AA%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">需求說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88%EF%BC%9A%E8%90%AC%E8%83%BD%E7%9A%84%E6%89%B9%E6%AC%A1%E8%85%B3%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">解決方案：萬能的批次腳本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%85%B3%E6%9C%AC%E7%99%BB%E5%A0%B4"><span class="nav-number">4.</span> <span class="nav-text">腳本登場</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">6.</span> <span class="nav-text">總結</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeff Lin</p>
+  <div class="site-description" itemprop="description">A personal blog about tech, life, and random thoughts.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://s1521121119.github.io/2025/11/30/automate-hexo-workflow-with-staging/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeff Lin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="文所未聞">
+      <meta itemprop="description" content="A personal blog about tech, life, and random thoughts.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="automate-hexo-workflow-with-staging | 文所未聞">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          automate-hexo-workflow-with-staging
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-11-30 17:34:01" itemprop="dateCreated datePublished" datetime="2025-11-30T17:34:01+08:00">2025-11-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<h2 id="title-“自動化-Hexo-工作流：用暫存區搞定文章發布”date-2025-11-30-22-10-15tags-Hexo-Automation-Batch-Script-工具"><a href="#title-“自動化-Hexo-工作流：用暫存區搞定文章發布”date-2025-11-30-22-10-15tags-Hexo-Automation-Batch-Script-工具" class="headerlink" title="title: “自動化 Hexo 工作流：用暫存區搞定文章發布”date: 2025-11-30 22:10:15tags:  - Hexo  - Automation  - Batch  - Script  - 工具"></a>title: “自動化 Hexo 工作流：用暫存區搞定文章發布”<br>date: 2025-11-30 22:10:15<br>tags:<br>  - Hexo<br>  - Automation<br>  - Batch<br>  - Script<br>  - 工具</h2><p>身為一個部落客，我們最享受的應該是專注於寫作本身。但每次寫完一篇文章後，總有那麼一些瑣碎的步驟：手動修改檔案的 Front-matter 來加上 <code>title</code> 和 <code>date</code>，然後打開終端機，依序輸入 <code>hexo clean</code>、<code>hexo generate</code>、<code>hexo deploy</code>… 這一套流程走下來，寫作的流暢感也差不多被打斷了。</p>
+<p>有沒有更懶人、更自動化的方法呢？</p>
+<span id="more"></span>
+
+<p>好吧，我必須承認，我對這個重複的流程感到有點厭倦了。如果能有一個神奇的資料夾，我只要把寫好的 <code>.md</code> 檔案丟進去，它就自動幫我處理好所有後續的事情，那該有多好？</p>
+<p>這個想法催生出了一個「暫存區 (<code>staging</code>)」工作流的念頭。</p>
+<h2 id="需求說明"><a href="#需求說明" class="headerlink" title="需求說明"></a>需求說明</h2><p>這個自動化流程的目標很明確：</p>
+<ol>
+<li>在專案中建立一個 <code>staging</code> 資料夾，專門用來存放剛寫好、還未發布的 <code>.md</code> 文章。</li>
+<li>執行一個腳本，它會自動遍歷 <code>staging</code> 裡的所有文章。</li>
+<li>腳本要足夠聰明，能讀取每個檔案的「最後修改時間」，並將其作為文章的發布日期（<code>date</code>）。</li>
+<li>同時，腳本也應該直接使用檔案的名稱作為文章的標題（<code>title</code>）。</li>
+<li>在處理完所有檔案後，自動執行標準的 Hexo 部署指令。</li>
+<li>如果部署成功，就自動刪除 <code>staging</code> 裡面的原始檔案，完成清理。</li>
+</ol>
+<h2 id="解決方案：萬能的批次腳本"><a href="#解決方案：萬能的批次腳本" class="headerlink" title="解決方案：萬能的批次腳本"></a>解決方案：萬能的批次腳本</h2><p>要在 Windows 環境下實現這個目標，最直接的工具就是我們熟悉的批次腳本（Batch Script, <code>.bat</code>）。它雖然古老，但用來處理這類檔案操作與指令執行的串接任務，依然是綽綽有餘。</p>
+<h2 id="腳本登場"><a href="#腳本登場" class="headerlink" title="腳本登場"></a>腳本登場</h2><p>這就是我們最終的解決方案，一個名為 <code>stage_and_deploy.bat</code> 的腳本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">REM ## Hexo Staging and Deploy Script ##</span><br><span class="line">REM This script processes markdown files from a &#x27;staging&#x27; directory,</span><br><span class="line">REM adds front-matter with the file&#x27;s modification date,</span><br><span class="line">REM deploys the site, and cleans up the staging files on success.</span><br><span class="line"></span><br><span class="line">REM 1. Ensure the staging directory exists and create if not.</span><br><span class="line">if not exist &quot;staging&quot; (</span><br><span class="line">    echo &quot;staging&quot; directory not found, creating it.</span><br><span class="line">    mkdir &quot;staging&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">REM Check if there are any markdown files to process before continuing.</span><br><span class="line">dir /b /a-d &quot;staging\*.md&quot; &gt;nul 2&gt;nul</span><br><span class="line">if !errorlevel! neq 0 (</span><br><span class="line">    echo No markdown files found in the &quot;staging&quot; directory to process.</span><br><span class="line">    goto :end</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">echo Processing files from &quot;staging&quot; directory...</span><br><span class="line"></span><br><span class="line">REM 2. Loop through each markdown file in the staging directory.</span><br><span class="line">for %%F in (&quot;staging\*.md&quot;) do (</span><br><span class="line">    echo.</span><br><span class="line">    echo Processing file: %%~nxF</span><br><span class="line"></span><br><span class="line">    REM Get the full path and prepare it for the WMIC command by escaping backslashes.</span><br><span class="line">    set &quot;filepath=%%~fF&quot;</span><br><span class="line">    set &quot;wmicpath=!filepath:\=\! &quot;</span><br><span class="line"></span><br><span class="line">    REM Get the last modified date using WMIC (Windows Management Instrumentation).</span><br><span class="line">    for /f &quot;tokens=2 delims==&quot; %%D in (&#x27;wmic datafile where name^=&quot;!wmicpath!&quot; get LastModified /value&#x27;) do (</span><br><span class="line">        for /f &quot;tokens=1&quot; %%T in (&quot;%%D&quot;) do (</span><br><span class="line">            set &quot;datetime_str=%%T&quot;</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    REM Parse the WMIC datetime string (YYYYMMDDHHMMSS.ffffff+zzz) to Hexo format (YYYY-MM-DD HH:MM:SS).</span><br><span class="line">    set &quot;year=!datetime_str:~0,4!&quot;</span><br><span class="line">    set &quot;month=!datetime_str:~4,2!&quot;</span><br><span class="line">    set &quot;day=!datetime_str:~6,2!&quot;</span><br><span class="line">    set &quot;hour=!datetime_str:~8,2!&quot;</span><br><span class="line">    set &quot;minute=!datetime_str:~10,2!&quot;</span><br><span class="line">    set &quot;second=!datetime_str:~12,2!&quot;</span><br><span class="line">    set &quot;hexo_date=!year!-!month!-!day! !hour!:!minute!:!second!&quot;</span><br><span class="line"></span><br><span class="line">    echo  - Generated Date: !hexo_date!</span><br><span class="line"></span><br><span class="line">    REM Define the destination file path for the new post.</span><br><span class="line">    set &quot;dest_file=source\_posts\%%~nxF&quot;</span><br><span class="line">    echo  - Creating post at: !dest_file!</span><br><span class="line"></span><br><span class="line">    REM 3. Create the new post file with front-matter, then append the original content.</span><br><span class="line">    (</span><br><span class="line">        echo ---</span><br><span class="line">        echo title: &quot;%%~nF&quot;</span><br><span class="line">        echo date: !hexo_date!</span><br><span class="line">        echo ---</span><br><span class="line">        echo.</span><br><span class="line">    ) &gt; &quot;!dest_file!&quot;</span><br><span class="line"></span><br><span class="line">    type &quot;%%F&quot; &gt;&gt; &quot;!dest_file!&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">echo.</span><br><span class="line">echo All files processed successfully.</span><br><span class="line">echo -------------------------------------------------</span><br><span class="line">echo.</span><br><span class="line"></span><br><span class="line">REM 4. Run the standard Hexo deploy command.</span><br><span class="line">echo Starting Hexo deployment...</span><br><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</span><br><span class="line"></span><br><span class="line">REM 5. Check the result of the deploy command and clean up the staging directory on success.</span><br><span class="line">if !errorlevel! equ 0 (</span><br><span class="line">    echo.</span><br><span class="line">    echo -------------------------------------------------</span><br><span class="line">    echo Deployment successful!</span><br><span class="line">    echo Deleting original files from &quot;staging&quot; directory...</span><br><span class="line">    del /Q &quot;staging\*.md&quot;</span><br><span class="line">    echo Cleanup complete.</span><br><span class="line">) else (</span><br><span class="line">    echo.</span><br><span class="line">    echo -------------------------------------------------</span><br><span class="line">    echo ERROR: Hexo deployment failed with error code !errorlevel!.</span><br><span class="line">    echo Original files in &quot;staging&quot; have been preserved for safety.</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">:end</span><br><span class="line">echo.</span><br><span class="line">echo Script finished.</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>現在，整個寫作到發布的流程變得極其簡單：</p>
+<ol>
+<li>將上面這段程式碼儲存成 <code>stage_and_deploy.bat</code> 檔案，並放在您的 Hexo 部落格根目錄。</li>
+<li>當你寫完一篇文章，例如 <code>my-awesome-post.md</code>，直接把它丟到 <code>staging</code> 資料夾裡。</li>
+<li>按兩下執行 <code>stage_and_deploy.bat</code>。</li>
+</ol>
+<p>然後就沒你的事了。腳本會接管一切，喝杯咖啡回來，文章就已經發布在你的網站上了。</p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>這個小小的自動化腳本，雖然技術上不複雜，但它解決了寫作流程中的一個痛點。透過建立一個明確的「暫存區」，我們將「寫作」和「發布」這兩個行為徹底分開，讓自己可以更專注於內容創作。這或許就是身為開發者，折騰工具最終的樂趣所在吧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/01/codex-%E7%9C%9F%E7%9A%84%E5%A4%AA%E5%A5%BD%E7%94%A8%E4%BA%86/" rel="prev" title="Codex 真的太好用了">
+                  <i class="fa fa-angle-left"></i> Codex 真的太好用了
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jeff Lin</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
